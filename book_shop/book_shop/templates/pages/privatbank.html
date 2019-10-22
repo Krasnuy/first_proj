@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+    <h1>Privatbank</h1>
+    {#    <ul>#}
+    {#        {% for money in data %}#}
+    {#            <li>ccy - {{ money.ccy }}#}
+    {#                base_ccy - {{ money.base_ccy }}#}
+    {#                buy - {{ money.buy }}#}
+    {#                sale - {{ money.sale }}#}
+    {#            </li>#}
+    {#        {% endfor %}#}
+    {#    </ul>#}
+    {{ data }}
+{% endblock %}

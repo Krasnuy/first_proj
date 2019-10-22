@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+    <h1>demo_model_form</h1>
+
+    {#    {{ demo_form.as_ul }}#}
+    {#    {{ demo_form.as_p }}#}
+    <form action="{% url 'client:demo-model-form' %}" method="post">
+        {% csrf_token %}
+        {% for field in demo_form %}
+            <div>
+                <label for="">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button>Submit</button>
+    </form>
+{% endblock %}

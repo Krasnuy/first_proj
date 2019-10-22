@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+
+{% block title %}
+    {{ book.title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1 style="text-align: center">{{ book.title }}</h1>
+    {% if book.img %}
+        <img style="max-width: 350px" src="{{ book.img.url }}" alt="">
+    {% endif %}
+    <div>
+        <p>description - {{ book.description }}</p>
+        <p>price - {{ book.price }} $</p>
+    </div>
+    {% if book.file %}
+        <div style="font-size: 48px; color: #ff3fe8;">У нас есть файл для этой книги!</div>
+        <a href="{{ book.file.url }}" target="_blank">Read!</a>
+    {% endif %}
+
+    <h1>все книги этого автора1</h1>
+    <p>{{ book_author }}</p>
+
+    <h3>Можем предложить еще почитать </h3>
+
+    {% for book in book.books_read_with.all %}
+        <div>
+            <p>id - {{ book.pk }}</p>
+            <p>title - {{ book.title }}</p>
+            <p>price - {{ book.price }} $</p>
+            {#            <p>description - {{ book.description }}</p>#}
+
+            {% if book.img %}
+                <p>Здесь есть медиа контент!</p>
+            {% endif %}
+            <p>author - <a href="/all-books-for-author/{{ book.author.id }}">{{ book.author.author_to_string }}</a></p>
+            <a href="/book-info/{{ book.id }}">Show book!</a>
+        </div>
+    {% endfor %}]
+{% endblock %}

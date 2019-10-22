@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Examples
+{% endblock %}
+
+
+{% block content %}
+    <h1>Examples django templates!</h1>
+
+    {{ bool_value }}
+
+    {% if bool_value %}
+        <p style="background: green; padding: 12px;">Bool value is {{ bool_value }}!</p>
+
+    {% else %}
+        <p style="background: red; color: white; padding: 12px;">Bool value is {{ bool_value }}!</p>
+
+    {% endif %}
+
+
+    {% if some_value == 100 %}
+        <h1>100!!!!!!</h1>
+
+    {% elif some_value == 150 %}
+        <h1>150!!!!!!</h1>
+    {% endif %}
+
+    <hr>
+    <ol>
+        {% for number in some_list %}
+            <li>{{ number }}</li>
+        {% endfor %}
+    </ol>
+
+
+    <a href="{% url 'client:demo-model-form' %}">Model form</a>
+    <a href="{% url 'client:privatbank-api' %}">Get privatbank api</a>
+    {#    {{ some_list }}#}
+{% endblock %}

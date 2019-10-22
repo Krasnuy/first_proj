@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% block content %}
+<h1>Hello {{ request.user.first_name }} {{ request.user.last_name }} !</h1>
+
+<div class="cabinet-content row">
+    <div class="left-col col-md-3 ">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link {% if cabinet_tab == 'main' %} active {% endif %}"
+               href="{% url 'client:cabinet' %}">Мой
+                профиль</a>
+{#            <a class="nav-link {% if cabinet_tab == 'write_post' %} active {% endif %}"#}
+{#               href="{% url 'client:write_post' %}">Написать статью</a>#}
+            <a class="nav-link {% if cabinet_tab == 'my_articles' %} active {% endif %}"
+{#               href="{% url 'client_app:my_articles' %}">Мои статьи</a>#}
+            <a class="nav-link">Подписчики</a>
+        </div>
+    </div>
+    <div class="right-col col-md-9">
+        {% if save %}
+        <p class="alert alert-success">Успешно сохранили данные!</p>
+        {% endif %}
+        <div class="content-wrap">
+            {% block right_col %}
+            <form action="{% url 'client:cabinet' %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {{ field }}
+                    {% if field.errors %}
+                    {{ field.errors }}
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <button>Save!</button>
+            </form>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

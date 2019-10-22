@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h1>Calculator!</h1>
+{{operations}}
+<input type="text">
+<select name="oper" id="">
+    {% for elem in operations %}
+    <option value="{{elem}}">{{elem}}</option>
+    {% endfor %}
+</select>
+<input type="text">
+
+{% endblock %}

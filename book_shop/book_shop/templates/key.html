@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+
+
+
+{% for keys in all_key %}
+<div>
+    <p>title - {{ keys.title }}</p>
+    <p>price - {{ keys.price }}</p>
+    <p>color - {{ keys.color }}</p>
+    <p>description - {{ keys.description }}</p>
+</div>
+{% endfor %}
+{% endblock %}}

@@ -1,0 +1,17 @@
+<header>
+    <a class="{% if current_tab == 'home' %}active {% endif %}" href="/">Главная</a>
+    <a class="{% if current_tab == 'calc' %}active {% endif %}" href="/actions/">Акции</a>
+    <a href="/about/">О нас</a>
+    <a href="/contacts/">Contacts</a>
+
+    <a class="btn btn-info" href="{% url 'client:cabinet' %}">Мой кабинет</a>
+
+    {% if request.user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'client:logout' %}">Выход({{ request.user.username }})</a>
+    {% else %}
+        <a href="{% url 'client:login' %}" class="btn btn-success">Вход</a>
+        <a href="{% url 'client:register' %}" class="btn btn-primary">Регистрация</a>
+    {% endif %}
+
+
+</header>

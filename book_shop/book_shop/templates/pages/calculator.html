@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Calculator page
+{% endblock %}
+
+
+
+{% block content %}
+    {##}
+    {#<div>#}
+    {#    text <input type="text">#}
+    {#    password <input type="password">#}
+    {#    <hr>#}
+    {#    number<input type="number">#}
+    {#    checkbox<input type="checkbox" checked>#}
+    {#    checkbox<input type="checkbox">#}
+    {#    checkbox<input type="checkbox">#}
+    {#    checkbox<input type="checkbox">#}
+    {#    <div>#}
+    {#        radio<input type="radio" name="test" checked>#}
+    {#        radio1<input type="radio" name="test">#}
+    {#        radio2<input type="radio" name="test">#}
+    {#        radio3<input type="radio" name="test">#}
+    {#        radio4<input type="radio" name="test">#}
+    {#        radio5<input type="radio" name="test">#}
+    {#    </div>#}
+    {#    <div>#}
+    {#        select#}
+    {#        <select name="" id="">#}
+    {#            <option value="">---</option>#}
+    {#            <option value="">1</option>#}
+    {#            <option value="2">2</option>#}
+    {#            <option value="">3</option>#}
+    {#        </select>#}
+    {#    </div>#}
+    {#</div>#}
+    <h1>Calculator!</h1>
+    <form action="/calculator/" method="post">
+        {% csrf_token %}
+        <input name="first_num" type="number">
+        <select name="operation" id="">
+            {% for oper in operations %}
+                <option value="{{ oper }}">{{ oper }}</option>
+            {% endfor %}
+        </select>
+        <input name="second_num" type="number">
+        <input type="hidden" name="secret_code" value="some value">
+        <button>submit!</button>
+    </form>
+
+    <p style="color: red; font-size: 48px; font-weight: bold"> {{ msg }}</p>
+    <p style="color: green; font-size: 48px; font-weight: bold"> {{ result }}</p>
+
+{% endblock %}
+
+
+
+
+
+{% block prefooter %}
+    <h3>Prefooter block calculator page!!!!</h3>
+{% endblock %}
+

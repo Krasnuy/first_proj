@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <a href="{% url 'client:login' %}">Есть аккаунт?</a>
+    <form method="post" action="{% url 'client:register' %}">
+        {% csrf_token %}
+        {% for field in form %}
+            <p>
+                <label for="">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% endfor %}
+        <label for="">Потверждать почту</label>
+        <input type="checkbox" name="check_mail">
+        <input type="submit" class="btn btn-success" value="Sign up">
+        <input class="btn btn-danger" type="reset" value="reset">
+
+    </form>
+{% endblock %}

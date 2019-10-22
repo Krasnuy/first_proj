@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <input type="number">
+    <input type="checkbox" checked>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="radio" name="1" checked>
+    <input type="radio" name="1">
+    <input type="radio" name="1">
+    <input type="button">
+    select
+    <select name="" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+    </select>
+
+
+
+<form action="/calculator/" method="post">
+    {% csrf_token %}
+    <input name="first" type="number">
+    <select name="oper" id="">
+        <option value="">+</option>
+    </select>
+    <input name="second" type="number">
+    <button>sumb</button>
+</form>
+</body>
+</html>

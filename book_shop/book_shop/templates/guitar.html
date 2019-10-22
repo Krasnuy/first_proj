@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+
+
+
+{% for guitar in all_guitar %}
+<div>
+    <p>title - {{ guitar.title }}</p>
+    <p>price - {{ guitar.price }}</p>
+    <p>color - {{ guitar.color }}</p>
+    <p>description - {{ guitar.description }}</p>
+</div>
+{% endfor %}
+{% endblock %}

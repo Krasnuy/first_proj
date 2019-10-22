@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+{% for elguitar in all_elguitar %}
+<div>
+    <p>title - {{ elguitar.title }}</p>
+    <p>price - {{ elguitar.price }}</p>
+    <p>color - {{ elguitar.color }}</p>
+    <p>description - {{ elguitar.description }}</p>
+</div>
+{% endfor %}
+{% endblock %}

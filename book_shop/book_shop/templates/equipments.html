@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block title %}
+    About us
+{% endblock %}
+
+{% block content %}
+
+
+
+{% for equipments in all_equip %}
+<div>
+    <p>title - {{ equipments.title }}</p>
+    <p>price - {{ equipments.price }}</p>
+    <p>color - {{ equipments.color }}</p>
+    <p>description - {{ equipments.description }}</p>
+    {% if equipments.img %}
+        <img style="max-width: 350px" src="{{ equipments.img.url }}" alt="">
+    {% endif %}
+
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'client_app/cabinet.html' %}
+{% load static %}
+{% block right_col %}
+    <style>
+        .article-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid black;
+        }
+
+        .col {
+            width: 20%;
+            padding: 12px;
+        }
+
+        .article-row:nth-child(odd) {
+            background: gainsboro;
+        }
+
+        .show-btn {
+            background: black;
+            color: white;
+            padding: 10px;
+            margin-left: 15px;
+        }
+
+        .popup-wrapper {
+            max-height: 50vh;
+            min-width: 50vw;
+            padding: 20px;
+            border: 1px solid black;
+            box-shadow: 0px 0px 10px black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            display: none;
+            /*overflow-y: auto;*/
+        }
+
+
+        .close {
+            position: absolute;
+            right: -15px;
+            top: -15px;
+        }
+
+
+    </style>
+    <h1>My articles <span class="js-count">{{ all_articles|length }}</span>!</h1>
+
+    <div class="article-wrapper">
+        <div class="article-row">
+            <div class="col-md-1">№</div>
+            <div class="col-md-4">Title</div>
+            <div class="col-md-4">Publish?</div>
+            <div class="col-md-3">Actions</div>
+        </div>
+        <div class="js-article-reload">
+            {% include 'client_app/ajax/reload_block_articles.html' %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'js/personal_cabinet.js' %}"></script>
+{% endblock %}
